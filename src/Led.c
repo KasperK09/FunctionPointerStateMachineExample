@@ -25,3 +25,8 @@ void Led_Off() {
 void Led_Idle() {
     printf("LED in idle state.\r\n");
 }
+
+//Kasper code for broken
+void Led_Broken() {
+    printf("LED in broken state.\r\n");
+}

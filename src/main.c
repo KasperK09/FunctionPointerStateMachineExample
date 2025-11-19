@@ -47,5 +47,10 @@ int main() {
     StateMachine_RunIteration(&stateMachine, EV_BUTTON_PUSHED);
     printf("State is now %s.\r\n", StateMachine_GetStateName(stateMachine.currState));
 
+    //hit with hammer
+    printf("Hit with hammer.\r\n");
+    StateMachine_RunIteration(&stateMachine, EV_HIT_WITH_HAMMER);
+    printf("State is now %s.\r\n", StateMachine_GetStateName(stateMachine.currState));
+
     return 0;
 }

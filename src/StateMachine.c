@@ -30,6 +30,7 @@ static stateFunctionRow_t stateFunctionA[] = {
     { "ST_IDLE",      &Led_Idle },      // ST_IDLE
     { "ST_LED_ON",    &Led_On },        // ST_LED_ON
     { "ST_LED_OFF",   &Led_Off },       // ST_LED_OFF
+    { "ST_BROKEN",    &Led_Broken}      // ST_LED_OFF
 };
 
 typedef struct {
@@ -40,11 +41,15 @@ typedef struct {
 
 static stateTransMatrixRow_t stateTransMatrix[] = {
     // CURR STATE  // EVENT              // NEXT STATE
-    { ST_IDLE,     EV_BUTTON_PUSHED,     ST_LED_ON  },
-    { ST_LED_ON,   EV_TIME_OUT,          ST_LED_OFF },
-    { ST_LED_ON,   EV_BUTTON_PUSHED,     ST_IDLE    },
-    { ST_LED_OFF,  EV_TIME_OUT,          ST_LED_ON  },
-    { ST_LED_OFF,  EV_BUTTON_PUSHED,     ST_IDLE    }
+    { ST_IDLE,      EV_BUTTON_PUSHED,   ST_LED_ON      },
+    { ST_LED_ON,    EV_TIME_OUT,        ST_LED_OFF     },
+    { ST_LED_OFF,   EV_TIME_OUT,        ST_LED_ON      },
+    { ST_LED_ON,    EV_BUTTON_PUSHED,   ST_IDLE        },
+    { ST_LED_OFF,   EV_BUTTON_PUSHED,   ST_IDLE        },
+    { ST_IDLE,      EV_HIT_WITH_HAMMER, ST_BROKEN      },
+    { ST_LED_ON,    EV_HIT_WITH_HAMMER, ST_BROKEN      },
+    { ST_LED_OFF,   EV_HIT_WITH_HAMMER, ST_BROKEN      },
+    { ST_BROKEN,    EV_ANY,             ST_BROKEN      }
 };
 
 void StateMachine_Init(stateMachine_t * stateMachine) {

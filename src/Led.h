@@ -16,4 +16,7 @@ void Led_Idle();
 void Led_On();
 void Led_Off();
 
+//kaspers code for broken
+void Led_Broken();
+
 #endif // #ifndef LED_H

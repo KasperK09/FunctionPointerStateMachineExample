@@ -14,7 +14,8 @@
 typedef enum {
     ST_IDLE,
     ST_LED_ON,
-    ST_LED_OFF
+    ST_LED_OFF,
+    ST_BROKEN
 } state_t;
 
 typedef struct {
@@ -28,6 +29,7 @@ typedef enum {
     EV_NONE,
     EV_BUTTON_PUSHED,
     EV_TIME_OUT,
+    EV_HIT_WITH_HAMMER
 } event_t;
 
 void StateMachine_Init(stateMachine_t * stateMachine);
