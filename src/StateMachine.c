@@ -30,6 +30,8 @@ static stateFunctionRow_t stateFunctionA[] = {
     { "ST_IDLE",      &Led_Idle },      // ST_IDLE
     { "ST_LED_ON",    &Led_On },        // ST_LED_ON
     { "ST_LED_OFF",   &Led_Off },       // ST_LED_OFF
+
+    //kaspers added code
     { "ST_BROKEN",    &Led_Broken}      // ST_LED_OFF
 };
 
@@ -46,7 +48,9 @@ static stateTransMatrixRow_t stateTransMatrix[] = {
     { ST_LED_OFF,   EV_TIME_OUT,        ST_LED_ON      },
     { ST_LED_ON,    EV_BUTTON_PUSHED,   ST_IDLE        },
     { ST_LED_OFF,   EV_BUTTON_PUSHED,   ST_IDLE        },
-    { ST_IDLE,      EV_HIT_WITH_HAMMER, ST_BROKEN      },
+
+    //kaspers added code
+    { ST_IDLE,      EV_HIT_WITH_HAMMER, ST_BROKEN      }, 
     { ST_LED_ON,    EV_HIT_WITH_HAMMER, ST_BROKEN      },
     { ST_LED_OFF,   EV_HIT_WITH_HAMMER, ST_BROKEN      },
     { ST_BROKEN,    EV_ANY,             ST_BROKEN      }

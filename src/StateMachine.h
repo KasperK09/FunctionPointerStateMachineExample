@@ -15,6 +15,8 @@ typedef enum {
     ST_IDLE,
     ST_LED_ON,
     ST_LED_OFF,
+
+    //kaspers added code
     ST_BROKEN
 } state_t;
 
@@ -29,6 +31,8 @@ typedef enum {
     EV_NONE,
     EV_BUTTON_PUSHED,
     EV_TIME_OUT,
+
+    //kaspers added code
     EV_HIT_WITH_HAMMER
 } event_t;
 
